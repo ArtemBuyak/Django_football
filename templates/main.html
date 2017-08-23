@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Football Club</title>
+</head>
+<body>
+
+<div class="top-bar">
+ <section class="top-bar-section">
+        <ul class="right">
+            {% if username %}
+                <li><a href={% url "loginsys:logout" %}>Выйти ({{username }})</a> </li>
+            {% else %}
+                <li><a href={% url "loginsys:login" %}>Войти</a></li>
+            {% endif %}
+        </ul>
+    </section>
+</div>
+    <h1>"Liberta" football club</h1>
+{% block start %}{% endblock %}
+{% block info %}{% endblock %}
+{% block login %}{% endblock %}
+</body>
+</html>
