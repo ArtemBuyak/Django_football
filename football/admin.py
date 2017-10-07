@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Cup, Team
+from .models import Cup, Team, Referee, Lists, ArchiveGame
 
 class TeamAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -18,6 +18,10 @@ class CupAdmin(admin.ModelAdmin):
         ('About cup', {'fields': ['cup_information']}),
         ('Number of teams', {'fields': ['count_commands']}),
         ('Prize', {'fields': ['prize']}),
+        ('Referee', {'fields': ['referee']})
     ]
 
 admin.site.register(Cup, CupAdmin)
+admin.site.register(Referee)
+admin.site.register(Lists)
+admin.site.register(ArchiveGame)

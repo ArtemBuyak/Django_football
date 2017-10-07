@@ -39,6 +39,9 @@ class Lists(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
     cup = models.ForeignKey(Cup, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return "Кубок: %s ----- %s" % (self.cup.cup_name, self.team)
+
 
 
 class ArchiveGame(models.Model):

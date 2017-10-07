@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "main.html" %}
+
+{% block tournament %}
+    <div class="tournament">
+        <hr>
+        <h4>Наименование турнира: <a href = {% url "football:registration"  cup.id %}>{{ cup.cup_name }}</a></h4>
+        <h4>Дата проведения турнира: {{ cup.date }}</h4>
+        <h4>Количество комантд: {{ cup.count_commands }}</h4>
+        <h4>Краткое описание турнира:</h4>
+        <p>{{ cup.cup_information }}</p>
+        <h3>Призовые: {{ cup.prize }} $</h3>
+        <hr>
+        <h4>Информация о судье данного кубка:</h4>
+        <h5>   - Имя: {{ referee.first_name }}</h5>
+        <h5>   - Фамилия: {{ referee.second_name }}</h5>
+        <h5>   - Возраст: {{ referee.age }}</h5>
+        <h5>   - Опыт в судействе: {{ referee.experience }} </h5>
+    </div>
+    <form action={% url "football:registration"  cup.id%}>
+        <input  class="button" type="submit" value="Регистрация команды">
+    </form>
+{% endblock %}

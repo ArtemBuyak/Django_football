@@ -1,6 +1,6 @@
 {% extends "main.html" %}
 
-{% block login %}
+{% block register %}
     <div class="register">
         <form action={% url "loginsys:register" %}, method="post">
             {% csrf_token %}

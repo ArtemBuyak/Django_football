@@ -1,0 +1,33 @@
+{% extends "main.html" %}
+
+{% block registration %}
+    <div class="cup_name">
+        <h3>Запись на турнир: {{ cup.cup_name }}</h3>
+    </div>
+    <div class="registration">
+        <form action = {% url "football:registration"  cup.id %}, method="post">
+            {% csrf_token %}
+            <div class="field2">
+                <label for="team">Название команды:  </label>
+                <input type="text" name="team" id="team">
+            </div>
+            <div class="field2">
+                <label for="number">Количество игроков:</label>
+                <input type="text" name="number" id="number">
+            </div>
+            <div class="field2">
+                <label for="captain">Фамилия капитана:</label>
+                <input type="text" name="captain" id="captain">
+            </div>
+            <input class="button" type="submit" value="Запись команды">
+            {% if team_error %}
+                <div>
+                    <label class="error">{{ team_error }}</label>
+                </div>
+            {% endif %}
+        </form>
+        <form action = {% url "football:tournaments" %}>
+            <input class="button" type="submit" value="Назад к списку">
+        </form>
+    </div>
+{% endblock %}
